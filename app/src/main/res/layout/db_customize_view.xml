@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hassan"
+        android:textFontWeight="@integer/material_motion_duration_long_2"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/rollTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.762" />
+
+    <TextView
+        android:id="@+id/rollTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="bsef19a513"
+        android:textFontWeight="@integer/material_motion_duration_long_2"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nameTextView"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/nameTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.21" />
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textFontWeight="@integer/material_motion_duration_long_2"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/rollView"
+        app:layout_constraintEnd_toStartOf="@+id/nameTextView"
+        app:layout_constraintHorizontal_bias="0.367"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.762" />
+
+    <TextView
+        android:id="@+id/rollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Roll Number"
+        android:textFontWeight="@integer/material_motion_duration_long_2"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nameView"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="@+id/nameView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.21" />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/default_button"
+        android:text="Edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rollView"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="@+id/rollView"
+        app:layout_constraintTop_toBottomOf="@+id/rollView"
+        app:layout_constraintVertical_bias="0.051" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffff0000"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rollTextView"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="@+id/rollTextView"
+        app:layout_constraintTop_toBottomOf="@+id/rollTextView"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="122dp"
+        android:layout_height="164dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toEndOf="@+id/rollTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156"
+        tools:srcCompat="@tools:sample/avatars" />
+</androidx.constraintlayout.widget.ConstraintLayout>
