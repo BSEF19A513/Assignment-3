@@ -54,14 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 DBHelper dbHelper = new DBHelper(MainActivity.this);
                 ArrayList<StudentModel> list = dbHelper.getAllStudents();
 //                ArrayList<StudentModel> studentModelArrayList = new ArrayList<StudentModel>();
-                ArrayAdapter arrayAdapter = new ArrayAdapter<StudentModel>
-                        (MainActivity.this, android.R.layout.simple_list_item_1,list);
-                listViewStudent.setAdapter(arrayAdapter);
-//                studentModelArrayList.add(new StudentModel("Hassan","bsef19a513",false));
-//                studentModelArrayList.add(new StudentModel("Asim","bsef19a542",true));
-//                studentModelArrayList.add(new StudentModel("Mahnoor","bsef19a502",false));
-//                myAdapter adapter = new myAdapter(MainActivity.this,studentModelArrayList);
-//                listView.setAdapter(adapter);
+//                ArrayAdapter arrayAdapter = new ArrayAdapter<StudentModel>
+//                        (MainActivity.this, android.R.layout.simple_list_item_1,list);
+//                listViewStudent.setAdapter(arrayAdapter);
+                myAdapter adapter = new myAdapter(MainActivity.this,list);
+                listViewStudent.setAdapter(adapter);
             }
         });
 
