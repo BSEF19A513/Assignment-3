@@ -63,10 +63,16 @@ public class MainActivity extends AppCompatActivity {
 //                ArrayAdapter arrayAdapter = new ArrayAdapter<StudentModel>
 //                        (MainActivity.this, android.R.layout.simple_list_item_1,list);
 //                listViewStudent.setAdapter(arrayAdapter);
-                myAdapter adapter = new myAdapter(MainActivity.this, list);
-                listViewStudent.setAdapter(adapter);
-                listViewStudent.setClickable(true);
-                Log.d("TAG =======", "View on Click "+list.get(0).getName());
+                if (list==null)
+                {
+                    Toast.makeText(MainActivity.this, "List is Empty", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    myAdapter adapter = new myAdapter(MainActivity.this, list);
+                    listViewStudent.setAdapter(adapter);
+                    listViewStudent.setClickable(true);
+                }
             }
         });
 

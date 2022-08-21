@@ -1,15 +1,20 @@
 package com.example.assignment3;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -35,9 +40,24 @@ public class myAdapter extends ArrayAdapter<StudentModel> {
         dltButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Log.d("TAG =======", "Delete on Click "+studentModel.getId());
-            DBHelper dbHelper = new DBHelper(getContext());
-            dbHelper.deleteStudent(studentModel.getId());
+                DBHelper dbHelper = new DBHelper(getContext());
+                dbHelper.deleteStudent(studentModel.getId());
+            }
+        });
+        Button updateButton = convertView.findViewById(R.id.editButton);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder al = new AlertDialog.Builder(getContext());
+                View v = LayoutInflater.from(getContext()).inflate(R.layout.activity_update,parent,false);
+                final EditText editName = v.findViewById(R.id.editTextName);
+                final EditText editRollNo = v.findViewById(R.id.editTextRollNumber);
+                Switch isEnroll = v.findViewById(R.id.switchStudent);
+                Button saveButton = v.findViewById(R.id.buttonSave);
+                al.setView(v);
+                editName.setText(studentModel.getName());
+                editRollNo.setText(studentModel.getRollNmber());
+                final AlertDialog alertDialog = al.show();
             }
         });
         textViewName.setText(studentModel.getName());
