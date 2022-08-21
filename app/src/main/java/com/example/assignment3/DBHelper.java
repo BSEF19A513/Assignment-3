@@ -74,9 +74,6 @@ public class DBHelper extends SQLiteOpenHelper {
             } while (cursorCourses.moveToNext());
 
         }
-//        for (int i = 0; i < studentArrayList.size(); i++) {
-//            Log.d("======", studentArrayList.get(i).getName());
-//        }
 
         cursorCourses.close();
         return studentArrayList;
