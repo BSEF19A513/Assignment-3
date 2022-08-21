@@ -58,6 +58,14 @@ public class myAdapter extends ArrayAdapter<StudentModel> {
                 editName.setText(studentModel.getName());
                 editRollNo.setText(studentModel.getRollNmber());
                 final AlertDialog alertDialog = al.show();
+                saveButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        DBHelper dbHelper = new DBHelper(getContext());
+                        dbHelper.updateStudent(editName.getText().toString(),editRollNo.getText().toString(),isEnroll.isChecked(),studentModel.getId());
+                        alertDialog.dismiss();
+                    }
+                });
             }
         });
         textViewName.setText(studentModel.getName());

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -82,6 +83,19 @@ public class DBHelper extends SQLiteOpenHelper {
     public void deleteStudent(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(STUDENT_TABLE,"StudentID = "+id,null);
+        db.close();
+    }
+    public void updateStudent(String name,String rollNumber,boolean isEnroll,int id){
+        int enroll=0;
+        if(isEnroll==true)
+            enroll = 1;
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("StudentName",name);
+        contentValues.put("StudentRollNumber",rollNumber);
+        contentValues.put("IsEnrolled",enroll);
+        db.update(STUDENT_TABLE,contentValues,STUDENT_ID+"="+id,null);
+        Log.d("tag=====", "updateStudent: "+name+" "+rollNumber+" "+enroll);
         db.close();
     }
 

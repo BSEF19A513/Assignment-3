@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
 //    public void editOnClick(View view) {
 //
 //        Log.d("TAG =======", "Edit on Click");
