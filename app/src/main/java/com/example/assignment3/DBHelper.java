@@ -1,11 +1,12 @@
 package com.example.assignment3;
 
+import static android.os.Build.ID;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -68,7 +69,7 @@ public class DBHelper extends SQLiteOpenHelper {
         if (cursorCourses.moveToFirst()) {
             do {
 
-                studentArrayList.add(new StudentModel(cursorCourses.getString(1),
+                studentArrayList.add(new StudentModel(cursorCourses.getInt(0), cursorCourses.getString(1),
                         cursorCourses.getString(2),
                         cursorCourses.getInt(3) == 1 ? true : false));
             } while (cursorCourses.moveToNext());
@@ -77,6 +78,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
         cursorCourses.close();
         return studentArrayList;
+    }
+    public void deleteStudent(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(STUDENT_TABLE,"StudentID = "+id,null);
+        db.close();
     }
 
 }

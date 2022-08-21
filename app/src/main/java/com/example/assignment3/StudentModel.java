@@ -1,6 +1,7 @@
 package com.example.assignment3;
 
 public class StudentModel {
+    private int id;
     private String name;
     private String rollNmber;
     private boolean isEnroll;
@@ -14,10 +15,24 @@ public class StudentModel {
                 '}';
     }
 
-    public StudentModel(String name, String rollNmber, boolean isEnroll) {
+    public StudentModel(int id, String name, String rollNmber, boolean isEnroll) {
+        this.id = id;
         this.name = name;
         this.rollNmber = rollNmber;
         this.isEnroll = isEnroll;
+    }
+    public StudentModel( String name, String rollNmber, boolean isEnroll) {
+        this.name = name;
+        this.rollNmber = rollNmber;
+        this.isEnroll = isEnroll;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

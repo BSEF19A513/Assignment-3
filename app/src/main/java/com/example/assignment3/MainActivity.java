@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -66,9 +65,11 @@ public class MainActivity extends AppCompatActivity {
 //                listViewStudent.setAdapter(arrayAdapter);
                 myAdapter adapter = new myAdapter(MainActivity.this, list);
                 listViewStudent.setAdapter(adapter);
+                listViewStudent.setClickable(true);
                 Log.d("TAG =======", "View on Click "+list.get(0).getName());
             }
         });
+
         listViewStudent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
