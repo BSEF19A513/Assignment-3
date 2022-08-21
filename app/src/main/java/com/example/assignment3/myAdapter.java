@@ -2,6 +2,7 @@ package com.example.assignment3;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,8 +41,25 @@ public class myAdapter extends ArrayAdapter<StudentModel> {
         dltButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DBHelper dbHelper = new DBHelper(getContext());
-                dbHelper.deleteStudent(studentModel.getId());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Are you sure you want to delete?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                DBHelper dbHelper = new DBHelper(getContext());
+                                dbHelper.deleteStudent(studentModel.getId());
+                                dialogInterface.cancel();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
         Button updateButton = convertView.findViewById(R.id.editButton);
